@@ -12,7 +12,10 @@ const app = Vue.createApp({
         { text: "List item 6", done: true },
       ],
 
-      addNewTask: "",
+      addNewTask: {
+        text: "",
+        done: false,
+      },
       error: false,
     };
   },
@@ -20,7 +23,7 @@ const app = Vue.createApp({
   methods: {
     addTask() {
       //setto il minimo dei caratteri da inserire
-      if (this.addNewTask.length >= 1) {
+      if (this.addNewTask.text.length >= 1) {
         this.error = false;
         this.tasks.push(this.addNewTask);
       } else {

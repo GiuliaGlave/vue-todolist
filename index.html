@@ -58,7 +58,8 @@
             type="text"
             class="form-control"
             aria-describedby="button-addon2"
-            v-model="addNewTask"
+            placeholder="New task"
+            v-model="addNewTask.text"
             @keyUp.enter="addTask()"
           />
           <button
@@ -75,8 +76,10 @@
           <h1>TO DO LIST</h1>
           <ol class="list-group list-group-numbered">
             <li
+              id="list-item"
               v-for="(task, index) in tasks"
               class="list-group-item d-flex"
+              :class="(task.done) ? 'done-item' : '' "
             >
               {{task.text}}
 
